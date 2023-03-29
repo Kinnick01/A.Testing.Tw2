@@ -44,8 +44,10 @@ public class LogoutTest {
 
     @Test
     public void checkIfLogoutWorks() {
+        driver.get("https://jira-auto.codecool.metastage.net/projects/MTP/issues/");
         driver.findElement(By.id("header-details-user-fullname")).click();
         driver.findElement(By.id("log_out")).click();
-        assertTrue(driver.findElement(By.id("confirm-logout-submit")).isDisplayed());
+        WebElement logoutText = driver.findElement(By.xpath("//*[text()='Log in again.']"));
+        assertTrue(logoutText.isDisplayed());
     }
 }
