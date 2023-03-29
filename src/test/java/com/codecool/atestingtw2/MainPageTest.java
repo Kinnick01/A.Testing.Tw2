@@ -36,8 +36,8 @@ public class MainPageTest {
 
     @Test
     public void checkHappyPath() {
-        driver.findElement(By.name("os_username")).sendKeys("automation47");
-        driver.findElement(By.name("os_password")).sendKeys("CCAutoTest19.");
+        driver.findElement(By.name("os_username")).sendKeys("");
+        driver.findElement(By.name("os_password")).sendKeys("");
         driver.findElement(By.name("login")).click();
     }
 
