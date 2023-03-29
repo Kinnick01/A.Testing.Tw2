@@ -22,21 +22,10 @@ import static com.codeborne.selenide.Selenide.*;
 public class MainPageTest {
     static WebDriver driver;
 
-/* @BeforeEach
-    public void setUp() {
-
-        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-       // options.addExtensions(new File("/Users/krausadam/Desktop/codecool/Advanced/adblockerPlus.crx"));
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://demoqa.com/automation-practice-form");*/
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver","/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
@@ -47,13 +36,10 @@ public class MainPageTest {
 
     @Test
     public void checkHappyPath() {
-       WebElement userName = driver.findElement(By.name("os_username"));
-       userName.sendKeys("");//test things
-        WebElement passWord = driver.findElement(By.name("os_password"));
-        passWord.sendKeys("");
+        driver.findElement(By.name("os_username")).sendKeys("automation47");
+        driver.findElement(By.name("os_password")).sendKeys("CCAutoTest19.");
         driver.findElement(By.name("login")).click();
     }
-
 
 
 }
