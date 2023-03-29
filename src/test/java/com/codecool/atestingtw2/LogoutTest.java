@@ -1,7 +1,6 @@
 package com.codecool.atestingtw2;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
@@ -11,13 +10,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class MainPageTest {
+public class LogoutTest {
+
     static WebDriver driver;
 
     @BeforeAll
@@ -33,12 +30,12 @@ public class MainPageTest {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        open("https://demoqa.com/automation-practice-form");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        open("https://jira-auto.codecool.metastage.net/");
     }
 
     @Test
-    public void checkHappyPath() {
+    public void checkLogoutFunction() {
         //test things
     }
 }
