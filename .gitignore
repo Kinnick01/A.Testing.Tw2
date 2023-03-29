@@ -13,6 +13,8 @@ target/
 *.iml
 *.ipr
 *.class
+*.env
+.env
 
 ### Eclipse ###
 .apt_generated
