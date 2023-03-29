@@ -5,7 +5,9 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -20,25 +22,38 @@ import static com.codeborne.selenide.Selenide.*;
 public class MainPageTest {
     static WebDriver driver;
 
-    @BeforeAll
-    public static void setUpAll() {
-        Configuration.browserSize = "1280x800";
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }
+/* @BeforeEach
+    public void setUp() {
+
+        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+       // options.addExtensions(new File("/Users/krausadam/Desktop/codecool/Advanced/adblockerPlus.crx"));
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://demoqa.com/automation-practice-form");*/
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver","url");
+        System.setProperty("webdriver.chrome.driver","/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        open("https://demoqa.com/automation-practice-form");
+        driver.get("https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FTests.jspa#/design?projectId=10101");
     }
 
     @Test
     public void checkHappyPath() {
-        //test things
+       WebElement userName = driver.findElement(By.name("os_username"));
+       userName.sendKeys("");//test things
+        WebElement passWord = driver.findElement(By.name("os_password"));
+        passWord.sendKeys("");
+        driver.findElement(By.name("login")).click();
     }
+
+
+
 }
