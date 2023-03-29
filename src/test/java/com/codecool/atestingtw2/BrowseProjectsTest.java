@@ -1,7 +1,5 @@
 package com.codecool.atestingtw2;
 
-
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,12 +11,12 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MainPageTest {
+public class BrowseProjectsTest {
+
     static WebDriver driver;
     WebElement username;
     WebElement passWord;
     WebElement loginButton;
-
 
     @BeforeEach
     public void setUp() {
@@ -32,41 +30,20 @@ public class MainPageTest {
         username = driver.findElement(By.name("os_username"));
         passWord = driver.findElement(By.name("os_password"));
         loginButton = driver.findElement(By.name("login"));
-    }
 
-    @Test
-    public void successfulLogin() {
+        //login precondition
         username.sendKeys("lol");//add username
         passWord.sendKeys("lol");//add Password
         loginButton.click();
         driver.findElement(By.id("user-options")).click();
-        assertTrue(driver.findElement(By.id("log_out")).isDisplayed());
-
     }
 
     @Test
-    public void noPassWord() {
-        username.sendKeys("");// add username
-        loginButton.click();
+    public void genericBrowseProjects() {
+        driver.get("https://jira-auto.codecool.metastage.net/projects/MTP/issues/");
+        driver.findElement(By.xpath("//*[text()='Main Testing Project']")).click();
+        WebElement mtp = driver.findElement(By.xpath("//*[text()='MTP']"));
+        assertTrue(mtp.isDisplayed());
     }
 
-    @Test
-    public void noCredentials() {
-        loginButton.click();
-    }
-
-    @Test
-    public void Captcha() throws InterruptedException {
-        username.sendKeys("lol");//leave empty
-        loginButton.click();
-        loginButton.click();
-        loginButton.click();
-        WebElement cptcha = driver.findElement(By.xpath("//*[@id=\"captcha\"]/div/img"));
-        System.out.println(cptcha.isDisplayed());
-    }
-
-    @AfterEach
-    public void close() {
-        driver.quit();
-    }
 }
