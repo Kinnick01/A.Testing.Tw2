@@ -17,7 +17,7 @@ public class BrowseProjectsTest {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "url");
+        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
@@ -26,9 +26,11 @@ public class BrowseProjectsTest {
         driver.get("https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FTests.jspa#/design?projectId=10101");
 
         //login precondition
+
         driver.findElement(By.name("os_username")).sendKeys("lol");//add username
         driver.findElement(By.name("os_password")).sendKeys("lol");//add Password
         driver.findElement(By.name("login")).click();
+
         driver.findElement(By.id("user-options")).click();
     }
 
