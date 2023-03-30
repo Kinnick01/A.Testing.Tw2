@@ -18,9 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LogoutTest {
 
     static WebDriver driver;
-    WebElement username;
-    WebElement passWord;
-    WebElement loginButton;
 
     @BeforeEach
     public void setUp() {
@@ -34,12 +31,13 @@ public class LogoutTest {
         //page navigation
         driver.get("https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FTests.jspa#/design?projectId=10101");
 
-        // precondition login
-        driver.findElement(By.name("os_username")).sendKeys("automation47");
 
-        driver.findElement(By.name("os_password")).sendKeys("CCAutoTest19.");
-
+        //login precondition
+        driver.findElement(By.name("os_username")).sendKeys("lol");//add username
+        driver.findElement(By.name("os_password")).sendKeys("lol");//add Password
         driver.findElement(By.name("login")).click();
+        driver.findElement(By.id("user-options")).click();
+
     }
 
     @Test

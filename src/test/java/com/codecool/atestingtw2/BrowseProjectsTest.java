@@ -14,9 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BrowseProjectsTest {
 
     static WebDriver driver;
-    WebElement username;
-    WebElement passWord;
-    WebElement loginButton;
 
     @BeforeEach
     public void setUp() {
@@ -27,14 +24,13 @@ public class BrowseProjectsTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FTests.jspa#/design?projectId=10101");
-        username = driver.findElement(By.name("os_username"));
-        passWord = driver.findElement(By.name("os_password"));
-        loginButton = driver.findElement(By.name("login"));
 
         //login precondition
-        username.sendKeys("automation47");//add username
-        passWord.sendKeys("CCAutoTest19.");//add Password
-        loginButton.click();
+
+        driver.findElement(By.name("os_username")).sendKeys("lol");//add username
+        driver.findElement(By.name("os_password")).sendKeys("lol");//add Password
+        driver.findElement(By.name("login")).click();
+
         driver.findElement(By.id("user-options")).click();
     }
 
@@ -44,6 +40,38 @@ public class BrowseProjectsTest {
         driver.findElement(By.xpath("//*[text()='Main Testing Project']")).click();
         WebElement mtp = driver.findElement(By.xpath("//*[text()='MTP']"));
         assertTrue(mtp.isDisplayed());
+    }
+
+    @Test
+    public void viewAllProjects() {
+        driver.get("https://jira-auto.codecool.metastage.net/secure/BrowseProjects.jspa?selectedCategory=all&selectedProjectType=all");
+        WebElement toucan = driver.findElement(By.xpath("//*[text()='TOUCAN']"));
+        WebElement coala = driver.findElement(By.xpath("//*[text()='COALA']"));
+        WebElement jeti = driver.findElement(By.xpath("//*[text()='JETI']"));
+        assertTrue(toucan.isDisplayed());
+        assertTrue(coala.isDisplayed());
+        assertTrue(jeti.isDisplayed());
+    }
+
+    @Test
+    public void browseCoala() {
+        driver.get("https://jira-auto.codecool.metastage.net/projects/COALA/summary");
+        WebElement coala = driver.findElement(By.xpath("//*[text()='COALA']"));
+        assertTrue(coala.isDisplayed());
+    }
+
+    @Test
+    public void browseJeti() {
+        driver.get("https://jira-auto.codecool.metastage.net/projects/JETI/summary");
+        WebElement jeti = driver.findElement(By.xpath("//*[text()='JETI']"));
+        assertTrue(jeti.isDisplayed());
+    }
+
+    @Test
+    public void browseToucan() {
+        driver.get("https://jira-auto.codecool.metastage.net/projects/TOUCAN/summary");
+        WebElement toucan = driver.findElement(By.xpath("//*[text()='TOUCAN']"));
+        assertTrue(toucan.isDisplayed());
     }
 
 }
