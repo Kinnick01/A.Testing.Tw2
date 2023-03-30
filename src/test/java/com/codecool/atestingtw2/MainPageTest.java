@@ -71,8 +71,5 @@ public class MainPageTest {
         System.out.println(cptcha.isDisplayed());
     }
 
-    @AfterEach
-    public void close() {
-        driver.quit();
-    }
+ 
 }
