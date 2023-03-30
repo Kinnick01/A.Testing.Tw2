@@ -13,9 +13,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class EditIssuesCoalaTest {
-
-
+public class EditIssueInJetiTest {
         static WebDriver driver;
         WebElement toucan;
         WebElement coala;
@@ -50,8 +48,8 @@ public class EditIssuesCoalaTest {
 
 
         @Test
-        public void editIssueCOALA1(){
-            driver.get("https://jira-auto.codecool.metastage.net/browse/COALA-1");
+        public void editIssueJETI1(){
+            driver.get("https://jira-auto.codecool.metastage.net/browse/JETI-1");
             driver.findElement(By.id("edit-issue")).click();
             // driver.findElement(By.id("description")).click();
 
@@ -62,16 +60,16 @@ public class EditIssuesCoalaTest {
         }
 
         @Test
-        public void editIssueCOALA2()  throws InterruptedException  {
-            driver.get("https://jira-auto.codecool.metastage.net/browse/COALA-2");
+        public void editIssueJETI2()  throws InterruptedException  {
+            driver.get("https://jira-auto.codecool.metastage.net/browse/JETI-2");
             driver.findElement(By.id("edit-issue")).click();
 
             assertTrue(driver.findElement(By.id("edit-issue-dialog")).isDisplayed());
         }
 
         @Test
-        public void editIssueCOALA3() {
-            driver.get("https://jira-auto.codecool.metastage.net/browse/COALA-3");
+        public void editIssueJETI3() {
+            driver.get("https://jira-auto.codecool.metastage.net/browse/JETI-3");
             driver.findElement(By.id("edit-issue")).click();
             assertTrue(driver.findElement(By.id("edit-issue-dialog")).isDisplayed());
         }
@@ -81,5 +79,7 @@ public class EditIssuesCoalaTest {
             driver.close();
         }
     }
+
+
 
 
