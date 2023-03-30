@@ -21,7 +21,7 @@ public class LogoutTest {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "url");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
@@ -48,4 +48,10 @@ public class LogoutTest {
         WebElement logoutText = driver.findElement(By.xpath("//*[text()='Log in again.']"));
         assertTrue(logoutText.isDisplayed());
     }
+
+    @AfterEach
+    public void close() {
+        driver.quit();
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.codecool.atestingtw2;
 
 
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +12,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MainPageTest {
+public class LoginTest {
     static WebDriver driver;
     WebElement username;
     WebElement passWord;

@@ -17,7 +17,7 @@ public class BrowseProjectsTest {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "url");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
@@ -74,4 +74,8 @@ public class BrowseProjectsTest {
         assertTrue(toucan.isDisplayed());
     }
 
+    @AfterEach
+    public void close() {
+        driver.quit();
+    }
 }

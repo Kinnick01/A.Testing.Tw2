@@ -23,7 +23,7 @@ public class CreateIssueTest {
     @BeforeEach
     public void setUp() {
         //driver setup
-        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "url");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
@@ -34,9 +34,9 @@ public class CreateIssueTest {
         driver.get("https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FTests.jspa#/design?projectId=10101");
 
         // precondition login
-        driver.findElement(By.name("os_username")).sendKeys("automation47");
+        driver.findElement(By.name("os_username")).sendKeys("lol");
 
-        driver.findElement(By.name("os_password")).sendKeys("CCAutoTest19.");
+        driver.findElement(By.name("os_password")).sendKeys("lol");
 
         driver.findElement(By.name("login")).click();
 
@@ -81,6 +81,11 @@ public class CreateIssueTest {
         driver.findElement(By.id("summary")).sendKeys("atest01_story");
         driver.findElement(By.name("Edit")).click();
        // assertFalse(dialog.isDisplayed());
+    }
+
+    @AfterEach
+    public void close() {
+        driver.quit();
     }
 
 }
