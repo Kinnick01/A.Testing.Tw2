@@ -20,7 +20,7 @@ public class BrowseProjectsTest {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "url");
+        System.setProperty("webdriver.chrome.driver", "/Users/krausadam/Desktop/codecool/Advanced/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
@@ -32,8 +32,8 @@ public class BrowseProjectsTest {
         loginButton = driver.findElement(By.name("login"));
 
         //login precondition
-        username.sendKeys("lol");//add username
-        passWord.sendKeys("lol");//add Password
+        username.sendKeys("automation47");//add username
+        passWord.sendKeys("CCAutoTest19.");//add Password
         loginButton.click();
         driver.findElement(By.id("user-options")).click();
     }
